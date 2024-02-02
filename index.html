@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Car Inventory System</title>
+</head>
+
+<body>
+    <div>
+        <form id="carForm">
+            <label for="carType">Car Type:</label>
+            <select id="carType" name="carType" required onchange="toggleAttributes()">
+                <option value="" selected="selected">Select car type</option>
+                <option value="electric">Electric</option>
+                <option value="gas">Gas</option>
+            </select>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required>
+
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" required>
+
+            <div id="electricAttributes" style="display:none;">
+                <label for="batteryCapacity">Battery Capacity (kWh):</label>
+                <input required type="text" id="batteryCapacity" name="batteryCapacity">
+            </div>
+
+            <div id="gasAttributes" style="display:none;">
+                <label for="fuelEfficiency">Fuel Efficiency (MPG):</label>
+                <input required type="text" id="fuelEfficiency" name="fuelEfficiency">
+            </div>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+    <div>
+        <table id="carDataTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Car Type</th>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Battery Capacity</th>
+                    <th>Fuel Efficiency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table body will be populated dynamically by Bootstrap Datatable -->
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
